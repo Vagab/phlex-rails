@@ -49,8 +49,10 @@ module Phlex
 								output = view_context.capture(
 									args[0].unbuffered, &block
 								)
+							elsif args.length == 1 && args[0].is_a?(Symbol)
+								output = view_context.view_flow.get(args[0])
 							else
-								output = view_context.capture(*args, &block)
+								output = view_context.capture(&block)
 							end
 
 							unchanged = (original_length == @_context.target.bytesize)
