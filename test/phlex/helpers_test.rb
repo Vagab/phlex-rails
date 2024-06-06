@@ -27,4 +27,11 @@ class HelpersTest < ActionDispatch::IntegrationTest
 		assert_response :success
 		assert_select "div > h1#hello.text-xl", "Hello World"
 	end
+
+	test "routes" do
+		get "/helpers/routes"
+
+		assert_response :success
+		assert_equal response.body, %(<a href="/adm/mpl/orders/10/users/56">Test Link</a>)
+	end
 end

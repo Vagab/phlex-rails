@@ -14,4 +14,8 @@ class HelpersController < ApplicationController
 	def missing_helper
 		render Helpers::MissingHelperView.new
 	end
+
+	def routes
+		render Helpers::RoutesView.new
+	end
 end
